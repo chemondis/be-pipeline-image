@@ -1,16 +1,3 @@
-FROM python:3.7-alpine
+FROM python:3.7
 
-ENV PIPENV_VENV_IN_PROJECT=enabled
-RUN apk add --no-cache bash \
-                       gcc \
-                       gettext \
-                       git \
-                       jpeg-dev \
-                       libffi-dev \
-                       libmagic \
-                       musl-dev \
-                       openssh-client \
-                       openssl-dev \
-                       postgresql-dev \
-                       zlib-dev \
-                       && pip install pipenv
+RUN apt-get update && apt-get install -y gettext && pip install pipenv
